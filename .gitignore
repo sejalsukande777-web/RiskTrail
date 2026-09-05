@@ -10,8 +10,10 @@ dist/
 .vite/
 
 # Models / artifacts
+# NOTE: ml/model.joblib is intentionally committed (not ignored) so the
+# backend/demo don't require retraining locally. If the model grows large
+# or is retrained often, revisit this.
 *.pkl
-*.joblib
 
 # OS
 .DS_Store
