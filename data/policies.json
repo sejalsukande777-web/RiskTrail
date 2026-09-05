@@ -1,0 +1,74 @@
+[
+  {
+    "id": "POLICY_001",
+    "synthetic": true,
+    "title": "High-Value Transaction Review",
+    "text": "Transactions significantly above a customer's typical spending amount, or above an absolute threshold set for the account type, require additional review before or immediately after processing. Investigators should check for: a matching pre-notification from the customer, a consistent long-term relationship with the merchant, and whether the amount is proportionate to any stated purpose (e.g. a known upcoming purchase). If none of these context signals are present, the transaction should be held pending customer verification by phone or secure message. A transaction should never be cleared on amount context alone if other independent risk factors (new device, odd hours, geographic mismatch) are also present."
+  },
+  {
+    "id": "POLICY_002",
+    "synthetic": true,
+    "title": "New Device Verification",
+    "text": "A transaction or account action originating from a device not previously associated with the account is treated as elevated risk, particularly when combined with any other signal such as a high amount, a new shipping address, or a change to account contact information. Investigators should attempt to verify the customer through an independent channel (phone number on file, not a channel provided in the transaction itself). If the new device is combined with two or more other risk factors, the action should be held automatically rather than only flagged for review."
+  },
+  {
+    "id": "POLICY_003",
+    "synthetic": true,
+    "title": "Odd-Hours Transaction Policy",
+    "text": "Transactions occurring well outside a customer's established activity window (commonly midnight to 5 AM local time, adjusted for any known travel) are flagged for review. Before treating an odd-hours transaction as suspicious, investigators must check the account's historical activity baseline, since some customers (night-shift workers, frequent travelers, different time-zone household members) have a legitimate pattern of off-hours activity. Odd-hours alone is a weak signal; it should be weighted more heavily only in combination with other risk factors such as a new device or an unusually large amount."
+  },
+  {
+    "id": "POLICY_004",
+    "synthetic": true,
+    "title": "Velocity and Frequency Check Policy",
+    "text": "An unusually high number of transactions, or a rapid escalation in transaction amount, within a short time window is treated as a potential card-testing, structuring, or account-takeover indicator. Small transactions across many distinct merchants in a short window strongly suggest automated card testing. A series of transactions individually kept just under a reporting or hold threshold suggests deliberate structuring. Investigators should review the full sequence, not just the flagged transaction in isolation, to determine whether the pattern is consistent with a single legitimate shopping session (e.g. same physical location) or with automated/fraudulent activity."
+  },
+  {
+    "id": "POLICY_005",
+    "synthetic": true,
+    "title": "Geographic Anomaly Policy",
+    "text": "A transaction processed in a location inconsistent with the customer's normal geographic pattern, with no travel notification on file, is treated as a strong fraud indicator, especially for physical-presence transactions where the cardholder's card would need to be physically present. Investigators should check for a travel notification, a recent change of address, or a documented pattern of activity in the new location before escalating. A geographic mismatch combined with a new device or new shipping address should be treated as high confidence fraud pending customer contact."
+  },
+  {
+    "id": "POLICY_006",
+    "synthetic": true,
+    "title": "Card Testing Detection Policy",
+    "text": "A pattern of very small transactions (typically under $5) across multiple merchants or multiple rapid attempts at one merchant, often within minutes, is treated as card testing: an attacker validating a stolen card number before attempting a larger fraudulent purchase. Any subsequent larger transaction at the same merchant, or any merchant, within a short window following a suspected test pattern should be held automatically rather than merely flagged, since card testing is frequently followed by an immediate high-value attempt."
+  },
+  {
+    "id": "POLICY_007",
+    "synthetic": true,
+    "title": "Account Takeover Response Policy",
+    "text": "A combination of a new device, a recent password or contact-information change with no matching customer service record, and a subsequent high-value transaction or new payee addition is treated as a likely account takeover in progress. Any pending fund transfer matching this pattern should be held immediately rather than allowed to complete pending review, given the low cost of a brief hold against the high cost of an irreversible fraudulent transfer. Investigators should force a password reset and re-verify identity through an out-of-band channel before releasing any held transaction."
+  },
+  {
+    "id": "POLICY_008",
+    "synthetic": true,
+    "title": "High-Risk Merchant Category Policy",
+    "text": "Transactions at merchants in categories with historically elevated chargeback or fraud-report rates (e.g. prepaid gift cards, certain electronics resellers, high-value luxury goods) receive additional scrutiny even absent other risk factors. Investigators should check the merchant's recent fraud-report count and chargeback rate. A merchant with multiple recent, unrelated fraud reports should raise the confidence of a flagged transaction being fraudulent; a merchant's chargebacks that are product-quality disputes rather than fraud reports should not be weighted the same way."
+  },
+  {
+    "id": "POLICY_009",
+    "synthetic": true,
+    "title": "First-Time / New Merchant Policy",
+    "text": "Transactions at a merchant with no prior transaction history in the system (network-wide, not just for the individual customer), or a merchant onboarded within the last 30 days, receive added scrutiny regardless of transaction amount. Legitimate new small businesses are common, so a new merchant alone should not result in an automatic hold, but should trigger a lighter-touch review and be added to a watchlist for a defined monitoring period rather than blocked outright, absent other risk factors."
+  },
+  {
+    "id": "POLICY_010",
+    "synthetic": true,
+    "title": "Chargeback and Prior Fraud History Policy",
+    "text": "A merchant or account with a documented history of prior chargebacks or fraud reports is not automatically treated as fraudulent on every subsequent transaction, but that history should raise the weight given to any other risk factors present. Investigators should distinguish between chargebacks caused by fraud versus chargebacks caused by product or service disputes, since only the former should meaningfully raise the fraud likelihood of a new, otherwise-unrelated transaction."
+  },
+  {
+    "id": "POLICY_011",
+    "synthetic": true,
+    "title": "Combined-Signal Escalation Policy",
+    "text": "When three or more independent risk factors are present on a single transaction (for example: new device, odd hours, high-risk merchant, and geographic or shipping mismatch), the transaction should be automatically blocked or held pending verification rather than merely flagged for later review, since the combined probability of fraud across independent factors is substantially higher than any single factor alone. Investigators reviewing such cases should document each contributing factor individually in the case outcome for future pattern analysis."
+  },
+  {
+    "id": "POLICY_012",
+    "synthetic": true,
+    "title": "Shipping and Billing Address Mismatch Policy",
+    "text": "A purchase shipping to an address that does not match the account's billing address, particularly when that shipping address has not been used previously on the account, is treated as an elevated risk factor, especially for high-value or easily resold goods. Investigators should verify the new shipping address directly with the customer before allowing the order to proceed if any other risk factor (new device, high amount) is also present."
+  }
+]

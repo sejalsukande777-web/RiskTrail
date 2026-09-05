@@ -1,0 +1,156 @@
+[
+  {
+    "id": "CASE_001",
+    "synthetic": true,
+    "summary": "Large late-night transfer from a brand-new device, confirmed fraud after account takeover.",
+    "text": "Flagged: a $4,200 transfer initiated at 2:47 AM from a device never seen on the account before. Investigation found the login had occurred nine minutes earlier from an IP address in a different country than the customer's usual location, and the password had been changed one hour prior with no corresponding customer service call. Customer confirmed by phone they did not initiate the transfer or the password change. Outcome: confirmed account takeover fraud. Funds recall initiated, device blocked, password reset forced, customer credited.",
+    "tags": ["high-amount", "new-device", "odd-hours", "account-takeover"]
+  },
+  {
+    "id": "CASE_002",
+    "synthetic": true,
+    "summary": "High-value purchase on a new device turned out to be legitimate after verification call.",
+    "text": "Flagged: a $3,800 electronics purchase made from a device not previously associated with the account. Investigator called the customer using the phone number on file. Customer confirmed they had just gotten a new phone and were making a planned purchase for a home office upgrade. No other risk indicators present (usual merchant category, usual spending pattern, no odd hours). Outcome: legitimate transaction, false positive, account note added recording the new device as verified.",
+    "tags": ["high-amount", "new-device", "false-positive"]
+  },
+  {
+    "id": "CASE_003",
+    "synthetic": true,
+    "summary": "Rapid sequence of small transactions across many merchants, classic card testing pattern.",
+    "text": "Flagged: 14 transactions of $1-$5 each within an 8 minute window, spread across 11 different online merchants, all declined or approved with no customer-facing confirmation step. This matches a known card testing pattern where a stolen card number is being validated by an automated script before a larger fraudulent purchase is attempted. Outcome: confirmed fraud, card immediately suspended pending reissue, customer notified proactively before any large-value attempt could succeed.",
+    "tags": ["velocity", "card-testing", "low-amount", "multiple-merchants"]
+  },
+  {
+    "id": "CASE_004",
+    "synthetic": true,
+    "summary": "Odd-hours transaction explained by customer's documented travel schedule.",
+    "text": "Flagged: a transaction at 3:15 AM local time, well outside the customer's typical 8 AM-10 PM activity window. Investigation found the customer had booked international travel two days earlier per a separate transaction history entry, and the transaction location matched their travel destination's time zone during normal daytime hours there. Outcome: legitimate transaction, false positive driven by not accounting for travel-adjusted local time.",
+    "tags": ["odd-hours", "false-positive", "travel"]
+  },
+  {
+    "id": "CASE_005",
+    "synthetic": true,
+    "summary": "Transaction at a merchant category with a known high chargeback rate, escalated for manual review.",
+    "text": "Flagged: a $650 purchase at a merchant classified under a high-risk merchant category code (prepaid gift cards) with a chargeback rate significantly above the network average. Merchant history showed 3 prior fraud reports linked to transactions there in the last 90 days. Investigation could not reach the customer for verification within the review window. Outcome: transaction held for additional verification per high-risk merchant category policy; later confirmed legitimate once customer responded to the follow-up email.",
+    "tags": ["high-risk-merchant", "chargeback-history", "manual-review"]
+  },
+  {
+    "id": "CASE_006",
+    "synthetic": true,
+    "summary": "Geographic mismatch between billing address and transaction location led to fraud confirmation.",
+    "text": "Flagged: a transaction physically processed in a country 6,000+ miles from the cardholder's billing address, with no travel notification on file and no prior transaction history in that country. Customer confirmed their physical card had never left their possession, suggesting the card number was compromised via a data breach or skimming. Outcome: confirmed fraud, card reissued, customer enrolled in enhanced monitoring for 90 days.",
+    "tags": ["geographic-mismatch", "confirmed-fraud", "skimming"]
+  },
+  {
+    "id": "CASE_007",
+    "synthetic": true,
+    "summary": "Multiple failed login attempts followed by a successful high-value transaction, confirmed takeover.",
+    "text": "Flagged: account showed 6 failed login attempts over 20 minutes, followed by one successful login using correct credentials, then an immediate $5,000 wire request. Pattern is consistent with credential stuffing (attacker testing leaked password combinations) followed by a successful match. Outcome: confirmed account takeover; wire held before execution per high-value transaction review policy, customer's password and linked email both found compromised in an unrelated data breach.",
+    "tags": ["account-takeover", "high-amount", "credential-stuffing"]
+  },
+  {
+    "id": "CASE_008",
+    "synthetic": true,
+    "summary": "First-time merchant transaction flagged, resolved as legitimate first purchase from a new small business.",
+    "text": "Flagged: a $220 transaction at a merchant with no prior transaction history in the system at all (first time seen network-wide, not just for this customer). First-time merchant policy requires added scrutiny for merchants under 30 days old. Investigation found the merchant was a newly onboarded small business with valid registration and no negative signals. Outcome: legitimate transaction, merchant added to the monitored new-merchant watchlist for routine 60-day review rather than blocked.",
+    "tags": ["first-time-merchant", "false-positive", "new-merchant"]
+  },
+  {
+    "id": "CASE_009",
+    "synthetic": true,
+    "summary": "Recurring subscription amount changed unexpectedly, flagged and found to be a legitimate price increase.",
+    "text": "Flagged: a recurring merchant charge increased from $14.99 to $24.99 without a new authorization on file, triggering a velocity/amount-change anomaly. Customer confirmed via chat that the service provider had sent a price increase notice the prior month which the customer had overlooked. Outcome: legitimate transaction, no fraud, customer advised to review subscription terms; case closed.",
+    "tags": ["velocity", "false-positive", "subscription"]
+  },
+  {
+    "id": "CASE_010",
+    "synthetic": true,
+    "summary": "New device plus new shipping address combination confirmed as fraud.",
+    "text": "Flagged: purchase made from a device never before seen on the account, shipping to an address that had never been used before and did not match the billing address, for a mid-range electronics item. Combination of new device + new unverified shipping address is a strong fraud indicator per new device verification policy. Customer confirmed they never made this purchase and never added this shipping address. Outcome: confirmed fraud, order cancelled before shipment, device blocked.",
+    "tags": ["new-device", "confirmed-fraud", "shipping-mismatch"]
+  },
+  {
+    "id": "CASE_011",
+    "synthetic": true,
+    "summary": "Chargeback history at a merchant led to a legitimate transaction still being flagged and cleared quickly.",
+    "text": "Flagged: transaction at a merchant with 2 prior chargebacks linked to other customers in the past 60 days, none involving this account. Merchant history showed the chargebacks were product-quality disputes, not fraud reports. Customer confirmed the purchase directly with no hesitation when contacted. Outcome: legitimate transaction; case closed quickly since the merchant's prior chargebacks were unrelated to a fraud pattern.",
+    "tags": ["chargeback-history", "false-positive", "merchant-risk"]
+  },
+  {
+    "id": "CASE_012",
+    "synthetic": true,
+    "summary": "Odd-hours ATM-style cash advance combined with a new device, confirmed fraud.",
+    "text": "Flagged: a cash advance transaction at 4:02 AM from a device with no prior history on the account, for an amount near the account's daily withdrawal limit. Odd-hours transactions combined with maximum-limit cash withdrawals are a well-documented fraud pattern. Customer had no knowledge of the transaction and reported their card as lost two days later, suggesting the card had been missing longer than realized. Outcome: confirmed fraud, card cancelled, funds recovery pursued through the network's fraud liability process.",
+    "tags": ["odd-hours", "new-device", "cash-advance", "confirmed-fraud"]
+  },
+  {
+    "id": "CASE_013",
+    "synthetic": true,
+    "summary": "Velocity spike in transaction count over a short period, traced to a legitimate shopping spree.",
+    "text": "Flagged: 8 transactions within 2 hours across a shopping mall's stores, well above the customer's typical daily transaction count. Investigation found the customer's location data (from a linked loyalty app, with consent) matched the mall's location during the flagged window, and the customer confirmed a planned back-to-school shopping trip. Outcome: legitimate transaction, false positive; velocity threshold noted as needing context (single physical location) in future model tuning, which is out of scope for this investigation but was logged for the ML team.",
+    "tags": ["velocity", "false-positive", "high-transaction-count"]
+  },
+  {
+    "id": "CASE_014",
+    "synthetic": true,
+    "summary": "High transaction amount at a new device combined with a mismatched delivery country, confirmed international fraud ring.",
+    "text": "Flagged: an $6,100 purchase from a device never seen before, shipping to a country the customer had never shipped to previously, for luxury goods known to be commonly resold. Merchant history showed 5 other unrelated accounts had similar shipping-country mismatches in the past month, suggesting a coordinated fraud ring targeting the same merchant. Outcome: confirmed fraud, order blocked, merchant notified of the broader pattern, case escalated to the fraud ring investigation team.",
+    "tags": ["high-amount", "new-device", "geographic-mismatch", "confirmed-fraud", "fraud-ring"]
+  },
+  {
+    "id": "CASE_015",
+    "synthetic": true,
+    "summary": "Odd-hours transaction from a frequent night-shift worker, correctly not flagged after pattern review.",
+    "text": "Flagged for manual review by a junior analyst: a 1:30 AM transaction. Investigation of the account's 6-month history showed a consistent pattern of transactions between midnight and 3 AM, consistent with the customer's stated occupation as a night-shift nurse. Outcome: legitimate transaction, false positive; case used as a training example for new analysts on the importance of checking historical baseline behavior before treating odd-hours as inherently risky.",
+    "tags": ["odd-hours", "false-positive", "baseline-behavior"]
+  },
+  {
+    "id": "CASE_016",
+    "synthetic": true,
+    "summary": "New device used to change account email and add a new payee, confirmed takeover before funds left the account.",
+    "text": "Flagged: within the same session from a new, never-before-seen device, the account email was changed, a new bill payee was added, and a same-day payment to that new payee was scheduled. This sequence (device change + contact info change + new payee) is a textbook account-takeover setup pattern. Payment was held automatically pending review. Customer confirmed none of these actions were theirs. Outcome: confirmed attempted fraud, payment cancelled before it processed, account fully re-secured.",
+    "tags": ["new-device", "account-takeover", "new-payee", "confirmed-fraud"]
+  },
+  {
+    "id": "CASE_017",
+    "synthetic": true,
+    "summary": "High-value transaction correctly cleared after matching a pre-notified large purchase plan.",
+    "text": "Flagged: a $9,500 transaction significantly above the account's typical spending. Account notes showed the customer had called two weeks prior to notify the bank of an upcoming large furniture purchase for a home renovation, including the approximate amount and expected merchant. Transaction matched the pre-notification closely. Outcome: legitimate transaction, cleared quickly due to the proactive customer notification; case noted as an example of how pre-notification reduces investigation time under high-value transaction review policy.",
+    "tags": ["high-amount", "false-positive", "pre-notified"]
+  },
+  {
+    "id": "CASE_018",
+    "synthetic": true,
+    "summary": "Low-amount test transaction followed by a high-value transaction at the same new merchant, confirmed as card-testing-to-fraud escalation.",
+    "text": "Flagged: a $1 authorization at a merchant never seen before, followed nine minutes later by a $2,750 transaction at the same merchant, both from a device new to the account. This is a known escalation pattern: attackers first test a stolen card with a tiny charge before attempting the real fraudulent purchase. Outcome: confirmed fraud, second transaction blocked in real time by the same-session rule, card reissued.",
+    "tags": ["card-testing", "new-device", "high-amount", "confirmed-fraud", "velocity"]
+  },
+  {
+    "id": "CASE_019",
+    "synthetic": true,
+    "summary": "Merchant with a strong long-term history flagged only due to an unusually large one-off amount, resolved as legitimate.",
+    "text": "Flagged: a $4,000 transaction at a merchant the customer had transacted with regularly for over two years, but at an amount roughly 20 times the customer's typical purchase there. Merchant history showed no fraud reports in over 3 years of operation and a low chargeback rate. Customer confirmed a one-time bulk order for a family event. Outcome: legitimate transaction; case illustrates that a trusted long-standing merchant relationship lowers but does not eliminate the need to check an unusual amount spike.",
+    "tags": ["high-amount", "false-positive", "trusted-merchant"]
+  },
+  {
+    "id": "CASE_020",
+    "synthetic": true,
+    "summary": "New device and odd-hours combination correctly escalated, revealed a shared-family-account misunderstanding rather than fraud.",
+    "text": "Flagged: a 2:10 AM transaction from a device not previously seen on the account. Investigator's call revealed the transaction was made by the account holder's spouse, who shares the account and had just gotten a replacement phone, and was awake late due to a differing work shift in another time zone. Outcome: legitimate transaction, false positive; account note added listing the spouse's new device as a recognized authorized user device to prevent repeat flags.",
+    "tags": ["new-device", "odd-hours", "false-positive", "shared-account"]
+  },
+  {
+    "id": "CASE_021",
+    "synthetic": true,
+    "summary": "Structuring pattern of transactions just under a reporting threshold, confirmed fraud linked to a compromised account.",
+    "text": "Flagged: four transactions of $950-$980 each within one day, each individually just under the $1,000 threshold that would trigger an automatic hold, from a device seen only once before. Pattern suggests deliberate structuring to avoid an amount-based control. Customer had no knowledge of any of the four transactions. Outcome: confirmed fraud, all four transactions reversed, structuring pattern reported per internal escalation procedure.",
+    "tags": ["velocity", "structuring", "confirmed-fraud", "new-device"]
+  },
+  {
+    "id": "CASE_022",
+    "synthetic": true,
+    "summary": "Odd-hours high-value transaction at a merchant with a strong fraud history, confirmed fraud after all signals aligned.",
+    "text": "Flagged: a $3,300 transaction at 3:40 AM at a merchant with 4 prior fraud reports in the past 30 days, from a device never seen on the account, shipping to an address that did not match billing. Every major risk indicator (odd-hours, new-device, high-risk-merchant, shipping-mismatch) aligned in a single transaction. Outcome: confirmed fraud, transaction blocked automatically before completion per combined-signal escalation rule, customer notified same day.",
+    "tags": ["odd-hours", "high-amount", "new-device", "high-risk-merchant", "confirmed-fraud", "shipping-mismatch"]
+  }
+]

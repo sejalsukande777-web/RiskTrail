@@ -17,3 +17,5 @@ dist/
 
 # OS
 .DS_Store
+
+data/creditcard.csv

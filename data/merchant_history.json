@@ -1,0 +1,142 @@
+{
+  "M001": {
+    "merchant_id": "M001",
+    "synthetic": true,
+    "name": "Northbridge Electronics (synthetic)",
+    "category": "electronics",
+    "account_age_days": 1460,
+    "chargeback_rate_pct": 0.3,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Long-standing merchant, low chargeback rate, no recent fraud reports."
+  },
+  "M002": {
+    "merchant_id": "M002",
+    "synthetic": true,
+    "name": "QuickCard Prepaid Kiosk (synthetic)",
+    "category": "prepaid_gift_cards",
+    "account_age_days": 210,
+    "chargeback_rate_pct": 4.8,
+    "prior_fraud_reports_90d": 3,
+    "notes": "High-risk merchant category (prepaid gift cards); elevated fraud-report count in the last 90 days."
+  },
+  "M003": {
+    "merchant_id": "M003",
+    "synthetic": true,
+    "name": "Rosewood Home Furnishings (synthetic)",
+    "category": "furniture",
+    "account_age_days": 900,
+    "chargeback_rate_pct": 0.5,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Established merchant, occasional large one-off purchases are typical for this category."
+  },
+  "M004": {
+    "merchant_id": "M004",
+    "synthetic": true,
+    "name": "LumaLux Resale (synthetic)",
+    "category": "luxury_goods",
+    "account_age_days": 95,
+    "chargeback_rate_pct": 2.1,
+    "prior_fraud_reports_90d": 5,
+    "notes": "Multiple unrelated accounts reported shipping-country mismatches in the last month; possible targeted fraud ring."
+  },
+  "M005": {
+    "merchant_id": "M005",
+    "synthetic": true,
+    "name": "Fernvale Grocery Co-op (synthetic)",
+    "category": "grocery",
+    "account_age_days": 2100,
+    "chargeback_rate_pct": 0.1,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Very low risk, routine everyday-spend merchant category."
+  },
+  "M006": {
+    "merchant_id": "M006",
+    "synthetic": true,
+    "name": "Nimbus Cloud Streaming (synthetic)",
+    "category": "subscription_services",
+    "account_age_days": 640,
+    "chargeback_rate_pct": 0.6,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Recurring subscription merchant; occasional price changes are expected and communicated to customers in advance."
+  },
+  "M007": {
+    "merchant_id": "M007",
+    "synthetic": true,
+    "name": "Driftwood Mall Boutique (synthetic)",
+    "category": "apparel",
+    "account_age_days": 780,
+    "chargeback_rate_pct": 0.9,
+    "prior_fraud_reports_90d": 1,
+    "notes": "Standard retail risk profile, single unrelated fraud report in the last 90 days."
+  },
+  "M008": {
+    "merchant_id": "M008",
+    "synthetic": true,
+    "name": "Petalwick Handmade Goods (synthetic)",
+    "category": "small_business_retail",
+    "account_age_days": 18,
+    "chargeback_rate_pct": 0.0,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Newly onboarded small business (under 30 days), no history yet; subject to first-time/new-merchant policy monitoring."
+  },
+  "M009": {
+    "merchant_id": "M009",
+    "synthetic": true,
+    "name": "Ashcombe Digital Marketplace (synthetic)",
+    "category": "digital_goods",
+    "account_age_days": 320,
+    "chargeback_rate_pct": 3.4,
+    "prior_fraud_reports_90d": 4,
+    "notes": "Digital goods merchant frequently targeted by card-testing patterns due to instant fulfillment and low per-item price."
+  },
+  "M_amazon": {
+    "merchant_id": "M_amazon",
+    "synthetic": true,
+    "name": "Amazon-style Online Marketplace (synthetic)",
+    "category": "general_ecommerce",
+    "account_age_days": 3650,
+    "chargeback_rate_pct": 0.4,
+    "prior_fraud_reports_90d": 1,
+    "notes": "Very large, long-established general marketplace; individual transaction risk depends heavily on account-level signals (device, amount, hours) rather than merchant reputation."
+  },
+  "M_uber": {
+    "merchant_id": "M_uber",
+    "synthetic": true,
+    "name": "Uber-style Rideshare Platform (synthetic)",
+    "category": "transportation",
+    "account_age_days": 2900,
+    "chargeback_rate_pct": 0.7,
+    "prior_fraud_reports_90d": 2,
+    "notes": "Rideshare merchant; typical fraud pattern here is stolen-card ride bookings rather than merchant-side compromise, so account-level device/location signals matter more than merchant history."
+  },
+  "M_starbucks": {
+    "merchant_id": "M_starbucks",
+    "synthetic": true,
+    "name": "Starbucks-style Coffee Chain (synthetic)",
+    "category": "food_and_beverage",
+    "account_age_days": 4100,
+    "chargeback_rate_pct": 0.1,
+    "prior_fraud_reports_90d": 0,
+    "notes": "Very low risk, high-frequency small-ticket merchant category; routine everyday spend."
+  },
+  "M_bestbuy": {
+    "merchant_id": "M_bestbuy",
+    "synthetic": true,
+    "name": "Best Buy-style Electronics Retailer (synthetic)",
+    "category": "electronics",
+    "account_age_days": 3200,
+    "chargeback_rate_pct": 0.5,
+    "prior_fraud_reports_90d": 1,
+    "notes": "Established electronics retailer; a common target for high-value fraud (resold goods), so amount and device/shipping signals matter more here than at low-ticket merchants."
+  },
+  "M999": {
+    "merchant_id": "M999",
+    "synthetic": true,
+    "name": "Unknown/Unregistered Merchant (synthetic)",
+    "category": "unknown",
+    "account_age_days": 0,
+    "chargeback_rate_pct": null,
+    "prior_fraud_reports_90d": null,
+    "notes": "No merchant history record found; treat as unverified until investigator confirms merchant identity."
+  }
+}
