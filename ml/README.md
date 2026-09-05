@@ -116,6 +116,19 @@ Notes for whoever is calling this function:
 - `features` should match V1-V28 if you have them. If not, it's fine to skip, the model just treats missing ones as average (0.0).
 - Run `python ml/train.py` once first so `model.joblib` exists. If it doesn't exist yet, predict_transaction() will give a clear error telling you to run train.py.
 
+## Important note about data/sample_transactions.json
+
+This file has real V1-V28 feature rows (from the held-out test set) tagged with fake demo IDs, plus a `model_output` field showing what `predict_transaction()` returned when we generated the file.
+
+**`model_output` is a reference value only, not something the backend should serve directly.** Per `ARCHITECTURE.md`, the ML layer is supposed to compute the score at request time, not read it from a cache. So the correct flow for backend is:
+
+1. Look up the transaction by `transaction_id` in `sample_transactions.json`
+2. Pull out the input fields (`amount`, `timestamp`, `device_id`, `merchant_id`, `time_seconds`, `features`)
+3. Call `predict_transaction()` live with those fields
+4. Serve that live result to the frontend
+
+`model_output` in the JSON exists only so we (ml/) could double check our own script wasn't broken, and as a fallback sanity-check if something's ever wrong with the live call. It should not be read and returned as-is in normal operation - doing that would mean the demo is showing a stored label instead of proving the pipeline actually runs, which defeats the point of the "real numbers, not staged" pitch.
+
 ## risk_level cutoffs
 
 - 0-29 → LOW
