@@ -15,7 +15,7 @@ SAMPLE_TRANSACTIONS_PATH = os.path.join(_DATA_DIR, "sample_transactions.json")
 MERCHANT_HISTORY_PATH = os.path.join(_DATA_DIR, "merchant_history.json")
 
 
-def get_transaction(transaction_id: str) -> dict:
+def get_transaction(transaction_id: str) -> dict | None:
     """
     Look up a demo transaction's INPUT fields (amount, timestamp, device_id,
     merchant_id, time_seconds, features) from data/sample_transactions.json,
@@ -29,8 +29,12 @@ def get_transaction(transaction_id: str) -> dict:
     Callers (e.g. the backend, or rag/evaluate_retrieval.py) should call
     predict_transaction() themselves with the fields returned here.
 
-    Raises FileNotFoundError if sample_transactions.json is missing, and
-    ValueError if the transaction_id is not found.
+    Returns None if transaction_id is not found in sample_transactions.json
+    (this matches get_merchant_history()'s "not found -> None" convention
+    below -- callers should check for None rather than catch an exception).
+
+    Raises FileNotFoundError if sample_transactions.json itself is missing
+    (a genuine setup/environment problem, not a "not found" lookup result).
     """
     if not os.path.exists(SAMPLE_TRANSACTIONS_PATH):
         raise FileNotFoundError(
@@ -46,7 +50,7 @@ def get_transaction(transaction_id: str) -> dict:
             # strip model_output -- never serve the cached reference value
             return {k: v for k, v in txn.items() if k != "model_output"}
 
-    raise ValueError(f"transaction_id '{transaction_id}' not found in sample_transactions.json")
+    return None
 
 
 def get_merchant_history(merchant_id: str) -> dict | None:
@@ -67,11 +71,11 @@ def get_merchant_history(merchant_id: str) -> dict | None:
 
 if __name__ == "__main__":
     # quick manual smoke test
-    try:
-        txn = get_transaction("TXN_001")
-        print("TXN_001 input fields:", txn)
-    except Exception as e:
-        print("get_transaction smoke test skipped/failed:", e)
+    txn = get_transaction("TXN_001")
+    print("TXN_001 input fields:", txn)
+
+    missing = get_transaction("TXN_DOES_NOT_EXIST")
+    print("Unknown transaction_id returns:", missing)  # should print: None
 
     print("Merchant M002 history:", get_merchant_history("M002"))
     print("Merchant M999 (unknown, but present) history:", get_merchant_history("M999"))

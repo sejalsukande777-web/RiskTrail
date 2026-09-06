@@ -84,14 +84,19 @@ STRICT RULES -- follow these exactly:
 1. Only reference case IDs, policy IDs, and facts that appear in the evidence \
 you were given below. Never invent a case number, policy name, or detail that \
 is not present in the retrieved text.
-2. If the evidence list is empty, or none of it is clearly relevant to this \
-transaction's risk factors, say so explicitly in your investigation text \
-(e.g. "No closely matching historical cases or policies were retrieved for \
-this transaction's risk factors.") instead of writing a confident-sounding \
-narrative anyway.
-3. Do not state or imply a risk score, risk level, or risk factor different \
+2. If the evidence list is empty, say so explicitly in your investigation text \
+(e.g. "No cases or policies were retrieved for this transaction's risk factors.") \
+instead of writing a confident-sounding narrative anyway.
+3. If evidence WAS retrieved but you judge it only weakly relevant to this \
+transaction's specific risk factors, say so explicitly using wording like \
+"the retrieved evidence does not closely match this transaction's specific \
+pattern" -- do NOT say or imply that no evidence was retrieved when the \
+evidence list you were given is non-empty. Only use "no evidence was \
+retrieved" language when the evidence list is actually empty. Rules 2 and 3 \
+describe two different situations -- do not blend their wording together.
+4. Do not state or imply a risk score, risk level, or risk factor different \
 from the ones you were given.
-4. Keep the investigation narrative to 3-5 sentences and the recommendation \
+5. Keep the investigation narrative to 3-5 sentences and the recommendation \
 to 1-2 sentences. Write for a human fraud investigator reading this in a \
 dashboard, not for the customer.
 
